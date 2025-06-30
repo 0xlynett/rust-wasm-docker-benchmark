@@ -9,7 +9,9 @@
 
 ```
 docker buildx build -t fibonacci-regular .
-docker buildx build -t fibonacci-wasm . -f wasm.dockerfile
+
+# Doesn't work on my machine. -Lyn
+docker buildx build -t fibonacci-wasm . -f wasm.dockerfile --platform wasi/wasm
 
 cargo build --release
 
@@ -21,7 +23,9 @@ cargo build --release --target=wasm32-wasip2
 
 ```
 docker buildx build -t webserver-regular .
-docker buildx build -t webserver-wasm . -f wasm.dockerfile
+
+# Doesn't work on my machine. -Lyn
+docker buildx build -t webserver-wasm . -f wasm.dockerfile --platform wasi/wasm
 
 cargo build --release
 

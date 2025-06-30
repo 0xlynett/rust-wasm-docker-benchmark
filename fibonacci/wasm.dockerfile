@@ -1,4 +1,5 @@
 # syntax=docker/dockerfile:1
+# Docker + WASM doesn't work on my machine, but kept in the hopes someone will make it work. -Lyn
 
 FROM --platform=$BUILDPLATFORM rust:1.88 AS buildbase
 WORKDIR /src
