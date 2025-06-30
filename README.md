@@ -1,4 +1,4 @@
 # Benchmarking WebAssembly, Docker & Native Execution
 
 - HTTP server with JSON parsing
-- Fibonacci 47
+- Fibonacci 47 (unoptimized)
