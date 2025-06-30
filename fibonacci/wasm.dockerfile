@@ -19,5 +19,5 @@ COPY src ./src
 RUN cargo build --target wasm32-wasip2 --release
 
 FROM scratch
-ENTRYPOINT [ "/pi.wasm" ]
-COPY --link --from=build /src/target/wasm32-wasip2/release/pi.wasm /pi.wasm
+ENTRYPOINT [ "/fib.wasm" ]
+COPY --link --from=build /target/wasm32-wasip2/release/fib.wasm /fib.wasm

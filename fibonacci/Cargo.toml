@@ -1,11 +1,8 @@
 [package]
-name = "pi"
+name = "fib"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies]
-rustedbytes-pi = "0.1.0"
-
 [[bin]]
-name = "pi"
+name = "fib"
 path = "src/main.rs"
