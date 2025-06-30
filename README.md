@@ -33,7 +33,7 @@ cargo build --release
 cargo build --release --target=wasm32-wasip2
 ```
 
-## Benchmarking
+## Benchmarking (Fibonacci)
 
 ```
 docker buildx build -t fibonacci-regular ./fibonacci && \
