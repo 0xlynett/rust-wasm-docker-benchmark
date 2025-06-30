@@ -32,3 +32,12 @@ cargo build --release
 # Requires you to install the wasm32-wasip2 toolchain
 cargo build --release --target=wasm32-wasip2
 ```
+
+## Benchmarking
+
+```
+docker buildx build -t fibonacci-regular ./fibonacci && \
+cargo build --release -p fib && \
+cargo build --release -p fib --target wasm32-wasip2 && \
+hyperfine "docker run --rm fibonacci-regular" "./target/release/fib" "wasmtime ./target/wasm32-wasip2/release/fib.wasm"
+```
