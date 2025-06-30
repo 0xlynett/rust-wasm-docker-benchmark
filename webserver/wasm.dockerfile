@@ -20,4 +20,4 @@ RUN cargo build --target wasm32-wasip2 --release
 
 FROM scratch
 ENTRYPOINT [ "/webserver.wasm" ]
-COPY --link --from=build /target/wasm32-wasip2/release/webserver.wasm /webserver.wasm
+COPY --link --from=build /src/target/wasm32-wasip2/release/webserver.wasm /webserver.wasm
