@@ -9,6 +9,8 @@ fn fibonacci(n: u64) -> u64 {
 }
 
 fn main() {
+    println!("Begin fibonacci");
+
     let now: Instant = Instant::now();
 
     println!("Value: {}", fibonacci(47));
