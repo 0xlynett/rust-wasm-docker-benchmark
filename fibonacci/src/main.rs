@@ -11,7 +11,7 @@ fn fibonacci(n: u64) -> u64 {
 fn main() {
     let now: Instant = Instant::now();
 
-    std::hint::black_box(fibonacci(47));
+    println!("Value: {}", fibonacci(47));
 
     let elapsed = now.elapsed();
     println!("Elapsed: {:.2?}", elapsed);
