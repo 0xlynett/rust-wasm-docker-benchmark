@@ -13,7 +13,7 @@ docker buildx build -t fibonacci-regular .
 # Doesn't work on my machine. -Lyn
 docker buildx build -t fibonacci-wasm . -f wasm.dockerfile --platform wasi/wasm
 
-cargo build --release
+cargo build --release --target=x86_64-unknown-linux-musl
 
 # Requires you to install the wasm32-wasip2 toolchain
 cargo build --release --target=wasm32-wasip2
@@ -27,7 +27,7 @@ docker buildx build -t webserver-regular .
 # Doesn't work on my machine. -Lyn
 docker buildx build -t webserver-wasm . -f wasm.dockerfile --platform wasi/wasm
 
-cargo build --release
+cargo build --release --target=x86_64-unknown-linux-musl
 
 # Requires you to install the wasm32-wasip2 toolchain
 cargo build --release --target=wasm32-wasip2
