@@ -2,21 +2,17 @@
 
 FROM --platform=$BUILDPLATFORM rust:1.88 AS buildbase
 WORKDIR /src
-RUN <<EOT bash
-    set -ex
-    apt-get update
-    apt-get install -y \
-        git \
-        clang
-EOT
+RUN apt-get update
+RUN apt-get install -y git clang
+RUN rustup target add x86_64-unknown-linux-musl
 
 FROM buildbase AS build
 COPY Cargo.toml .
 COPY src ./src
 
 # Build the binary
-RUN cargo build --release
+RUN cargo build --release --target=x86_64-unknown-linux-musl
 
 FROM scratch
+COPY --link --from=build src/target/x86_64-unknown-linux-musl/release/webserver /webserver
 ENTRYPOINT [ "/webserver" ]
-COPY --link --from=build /src/target/release/webserver /webserver
