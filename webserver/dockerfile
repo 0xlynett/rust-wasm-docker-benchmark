@@ -19,4 +19,4 @@ RUN cargo build --release
 
 FROM scratch
 ENTRYPOINT [ "/webserver" ]
-COPY --link --from=build /target/release/webserver /webserver
+COPY --link --from=build /src/target/release/webserver /webserver

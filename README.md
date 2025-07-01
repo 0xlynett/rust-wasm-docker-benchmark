@@ -37,7 +37,6 @@ cargo build --release --target=wasm32-wasip2
 
 ```
 docker buildx build -t fibonacci-regular ./fibonacci && \
-cargo build --release -p fib && \
-cargo build --release -p fib --target wasm32-wasip2 && \
-hyperfine "docker run --rm fibonacci-regular" "./target/release/fib" "wasmtime ./target/wasm32-wasip2/release/fib.wasm"
+cargo build --release -p fib --target x86_64-unknown-linux-musl --target wasm32-wasip2 && \
+hyperfine "docker run --rm fibonacci-regular" "./target/x86_64-unknown-linux-musl/release/fib" "wasmtime ./target/wasm32-wasip2/release/fib.wasm"
 ```
